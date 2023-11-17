@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+.input-wrapper{
+    margin-bottom: 20px;
+}
+
+.piatto{
+    margin-bottom: 10px;
+    background: #a0aec0;
+    padding: 15px;
+}
+
+.container {
+    display: flex;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Menu Ristorante</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body onload="generaSelectTipo()">
+    <div class="container">
+        <div class="input-wrapper">
+            <label for="tipo-piatto">Tipo piatto</label>
+            <select id="tipo-piatto" onchange="showPiatti(this.value)"></select>
+        </div>
+
+        <div id="piatti">
+
+        </div>
+        <div class="order-list">
+            <div class="price-list">
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
