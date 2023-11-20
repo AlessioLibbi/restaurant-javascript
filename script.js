@@ -77,7 +77,7 @@ function showOrder(){
   order.forEach(plate => {
     var orderDiv = document.createElement("div")
     orderDiv.classList.add("ordine-singolo")
-    orderDiv.innerHTML = plate.nome
+    orderDiv.innerHTML = `<a onclick="deletePlate()"><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></a>${plate.nome}`
     orderList.appendChild(orderDiv)
   })
   getPrice()
@@ -103,3 +103,20 @@ function getPrice() {
   priceList.appendChild(dollarCount)
 }
 
+function deletePlate() {
+  let result = order.map(plate => {
+    plate.id  = plate.id.map(id => ({
+      id : randomId()
+    }))
+    return plate
+  })
+  
+  console.log(result)
+  localStorage.removeItem("savedOrder");
+}
+
+function randomId() {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (30 - 10 +1) +10);
+}

@@ -3,24 +3,43 @@
 
 <head>
     <title>Menu Ristorante</title>
-    
+
     <script defer src="script.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body onload="generaSelectTipo(); showOrder()">
     <nav class="navbar  ">
         <div class="container-fluid d-flex">
-          <a class="navbar-brand" href="#">
-            <img src="/Photo_1625137656071.png" alt="" width="30" height="24" class=" align-text-top">
-          </a>
-          <a href="#">
-            <h1>Da Alessio Restaurant</h1>
-          </a>
+            <div class="photo-container d-flex">
+                <a class="navbar-brand" href="#">
+                    <img src="/Photo_1625137656071.png" alt="" width="30" height="24" class=" align-text-top">
+                </a>
+                <div class="links">
+                    <h1 href="">Seguici sui social</h1>
+                    <div class="link-group d-flex">
+                        <p><a target="_blank" href="https://www.facebook.com/?locale=it_IT"><i class="fa-brands fa-facebook"></i></a></p>
+                        <p><a target="_blank" href="https://twitter.com/?lang=it"><i class="fa-brands fa-twitter"></i></a></p>
+                        <p><a target="_blank" href="https://www.instagram.com/accounts/login/"><i class="fa-brands fa-instagram"></i></a></p>
+                        <p><a target="_blank" href="https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fit-IT%2F&lang=en&enter_method=mandatory"><i class="fa-brands fa-tiktok"></i></a></p>
+                        <p><a target="_blank" href="https://www.linkedin.com/in/alessiolibbi/"><i class="fa-brands fa-linkedin"></i></a></p>
+                    </div>
+                 
+                </div>
+
+            </div>
+
+
+            <a href="#">
+                <h1>Da Alessio Restaurant</h1>
+            </a>
         </div>
-      </nav>
-    <div class="container">
+    </nav>
+    <div class="container position-relative">
+        <h1 class=" h1-absolute position-absolute">La tua  Zona Ordini</h1>
         <div class="select-plate">
             <h1>Menù</h1>
             <div class="input-wrapper">
@@ -37,18 +56,18 @@
             <div class="wrap-order">
                 <h1>Il tuo Ordine</h1>
                 <div class="order-space">
-                    
-    
+
+
                 </div>
             </div>
-           
+
             <div class="send-price">
                 <div class="price-list">
 
                 </div>
-               
+
             </div>
-           
+
         </div>
 
     </div>
