@@ -4,19 +4,99 @@
 }
 
 body {
-    background-color: blueviolet;
+
+    background: linear-gradient(30deg, #A20000 0 50%, #59B7D3 50% 100%);
 }
 
-.input-wrapper{
+.input-wrapper {
     margin-bottom: 20px;
+    background-color: white;
+
 }
 
-.piatto{
+a {
+    text-decoration: none;
+    color: #A20000;
+}
+
+a:hover {
+    color: red;
+}
+
+a img {
+    width: 100px;
+    height: 100px;
+}
+
+.piatto-singolo:hover {
+    color: #A20000;
+}
+
+.ordine-singolo:hover {
+    color: #59B7D3;
+}
+
+.piatto {
     margin-bottom: 10px;
     background: #a0aec0;
     padding: 15px;
 }
 
 .container {
+    margin-top: 100px;
     display: flex;
+    justify-content: space-around;
+}
+
+.select-plate,
+.order-list {
+    padding: 30px;
+    width: 40%;
+    background-color: white;
+    min-height: 500px;
+
+    cursor: pointer;
+    border-radius: 20px;
+    color: #59B7D3;
+    font-size: 20px;
+    border: 5px solid #59B7D3;
+}
+
+.order-list {
+    color: #A20000;
+    border: 5px solid #A20000;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar {
+    background-color: #59B7D3;
+    /* border: 1px solid; */
+
+}
+
+@media (max-width: 992px) {
+    .container {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .select-plate,
+    .order-list {
+        padding: 30px;
+        width: 100%;
+        background-color: white;
+        min-height: 100%;
+
+        cursor: pointer;
+        border-radius: 20px;
+        color: #59B7D3;
+        font-size: 20px;
+        border: 5px solid #59B7D3;
+    }
 }
