@@ -57,28 +57,58 @@ function showPiatti(tipo) {
   plateToShow.forEach(plate => {
     var plateDiv = document.createElement("div")
     plateDiv.classList.add("piatto-singolo")
-    plateDiv.innerHTML = plate.nome
+    plateDiv.innerHTML = plate.nome + " " + plate.prezzo + "€"
     plateList.appendChild(plateDiv)
     plateDiv.addEventListener("click", () => addPiatto(plate))
   })
 }
 
 function addPiatto(plate) {
-  alert("Aggiunto " + plate.nome + " all'ordine");
-  order.push(plate)
+  ;
+  if(confirm("Aggiunto " + plate.nome + " all'ordine") === true) {
+    id = Math.floor(Math.random() * (200 - 100) + 100);
+  newPlate = {...plate};
+  newPlate.id = id
+  order.push(newPlate)
   localStorage.setItem('savedOrder', JSON.stringify(order));
   showOrder();
+  } else {
+
+  }
+  
 }
 
-function showOrder(){
-  
+
+function deletePlateFun(plate) {
+
+  var deleteIndex = order.indexOf(plate);
+  if(confirm(`Vuoi rimuovere ${plate.nome} dall ordine?`) === true) {
+    if(deleteIndex !== -1) {
+      order.splice(deleteIndex, 1 );
+      localStorage.setItem('savedOrder', JSON.stringify(order));
+    showOrder();
+    } 
+  }
+ 
+}
+
+function showOrder() {
+
   var orderList = document.querySelector('.order-space')
   orderList.innerHTML = ""
   order.forEach(plate => {
     var orderDiv = document.createElement("div")
     orderDiv.classList.add("ordine-singolo")
-    orderDiv.innerHTML = `<a onclick="deletePlate()"><i class="fa-solid fa-xmark" style="color: #ff0000;"></i></a>${plate.nome}`
+    orderDiv.innerHTML = `${plate.nome}`
     orderList.appendChild(orderDiv)
+    var deletePlate = document.createElement("span");
+    deletePlate.classList.add('delete-btn');
+    deletePlate.innerHTML = `   ${plate.prezzo}€    <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>`
+    orderDiv.appendChild(deletePlate);
+    deletePlate.addEventListener('click', () => {
+      deletePlateFun(plate)
+    })
+
   })
   getPrice()
 
@@ -96,27 +126,24 @@ function getPrice() {
     total += plate.prezzo
   })
   console.log(total);
-  localStorage.setItem('setPrice', total );
-  
+  localStorage.setItem('setPrice', total);
+
   //total= priceCounter.reduce(function(a, b) { return a + b; }, 0);
   priceList.innerHTML = `Il tuo conto e ${total}€`
   priceList.appendChild(dollarCount)
 }
 
-function deletePlate() {
-  let result = order.map(plate => {
-    plate.id  = plate.id.map(id => ({
-      id : randomId()
-    }))
-    return plate
-  })
-  
-  console.log(result)
-  localStorage.removeItem("savedOrder");
-}
 
-function randomId() {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (30 - 10 +1) +10);
-}
+
+const randId = (size) => {
+  const nums = Array.from({ length: 10 }, (_, i) =>
+    String.fromCharCode("0".charCodeAt(0) + i)
+  );
+  const chars = [...nums];
+  const rand = (length) => Math.floor(Math.random() * length);
+  return Array.from({ length: size }, () => chars[rand(chars.length)]).join("");
+ };
+
+const newlist = menu.map(({ value }) => ({ value, id: randId(6) }));
+
+ console.log(newlist);
